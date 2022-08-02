@@ -83,7 +83,7 @@ DATABASES = {
 DATABASE ={
     'default':{
         'ENGINE': 'django.db.backends.postgres',
-        'NAME': 'digitalwallet',
+        'NAME': 'myproject',
         'USER': 'myprojectuser',
         'PASSWORD': 'password',
         'HOST': 'localhost',
