@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Notifications
+from .models import Customer,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Notifications,Account
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
     list_display=('first_name','last_name','age','email',)
@@ -14,3 +14,4 @@ admin.site.register(Wallet)
 admin.site.register(Reward)
 admin.site.register(Loan)
 admin.site.register(Notifications)
+admin.site.register(Account)
