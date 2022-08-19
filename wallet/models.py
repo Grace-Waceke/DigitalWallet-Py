@@ -10,11 +10,6 @@ class Customer(models.Model):
     address=models.CharField(max_length=20,null=True)
     email=models.EmailField(max_length=25,null=True)
     phonenumber=models.CharField(max_length=15,null=True)
-    GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female')
-    )
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
     date_created = models.DateTimeField(default=timezone.now)
     nationality=models.CharField(max_length=20,null=True)
     profile_picture = models.ImageField(upload_to='profile_pictures/',null=True)
@@ -43,12 +38,6 @@ class Transaction(models.Model):
     transaction_ref=models.CharField(max_length=255,null=True)
     wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name   = 'Transaction_wallet')
     transaction_amount=models.IntegerField()
-    # TRANSACTION_CHOICES = (
-    #    ('withdraw', 'Withdrawal'),
-    #     ('deposit', 'deposit'),
-    # )
-    # transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
-    transaction_charge=models.IntegerField()
     transaction_date=models.DateTimeField(default=timezone.now)
     # receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
     original_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_original_account')
