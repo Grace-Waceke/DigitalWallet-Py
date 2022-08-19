@@ -12,12 +12,12 @@ class ReceiptsAdmin(admin.ModelAdmin):
 admin.site.register(Receipts,ReceiptsAdmin)
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display=('transaction_ref','transaction_amount','transaction_type','transaction_charge','transaction_date')
-    search_fields=('transaction_ref','transaction_amount','transaction_type','transaction_charge','transaction_date')
+    list_display=('transaction_ref','transaction_amount','transaction_charge','transaction_date')
+    search_fields=('transaction_ref','transaction_amount','transaction_charge','transaction_date')
 admin.site.register(Transaction,TransactionAdmin)
 
 class CardAdmin(admin.ModelAdmin):
-    list_display=('card_name','card_number','card_status')
+    list_display=('card_name','card_number')
     search_fields=('card_name','card_number')
 admin.site.register(Card, CardAdmin)
 
@@ -47,8 +47,8 @@ class LoanAdmin(admin.ModelAdmin):
 admin.site.register(Loan,LoanAdmin)
 
 class NotificationsAdmin(admin.ModelAdmin):
-    list_display=('notification_Id','status','date', 'recipient')
-    search_fields=('notification_Id','status','date', 'recipient')
+    list_display=('notification_Id','date', 'recipient')
+    search_fields=('notification_Id','date', 'recipient')
 admin.site.register(Notifications,NotificationsAdmin)
 
 class AccountAdmin(admin.ModelAdmin):

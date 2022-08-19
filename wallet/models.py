@@ -43,11 +43,11 @@ class Transaction(models.Model):
     transaction_ref=models.CharField(max_length=255,null=True)
     wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name   = 'Transaction_wallet')
     transaction_amount=models.IntegerField()
-    TRANSACTION_CHOICES = (
-       ('withdraw', 'Withdrawal'),
-        ('deposit', 'deposit'),
-    )
-    transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
+    # TRANSACTION_CHOICES = (
+    #    ('withdraw', 'Withdrawal'),
+    #     ('deposit', 'deposit'),
+    # )
+    # transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
     transaction_charge=models.IntegerField()
     transaction_date=models.DateTimeField(default=timezone.now)
     # receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
@@ -58,17 +58,7 @@ class Card(models.Model):
     date_Issued=models.DateTimeField(default=timezone.now)
     card_name=models.CharField(max_length=20,null=True)
     card_number=models.IntegerField()
-    ISSUER_CHOICES=(
-         ('Master', 'Mastercard'),
-        ('visa', 'visacard'),
-    )
-    card_type=models.CharField(max_length=10, choices=ISSUER_CHOICES,null=True)
     expiry_date=models.DateTimeField(default=timezone.now)
-    STATUS_CHOICES = (
-        ('d', 'debit'),
-        ('c', 'credit'),
-    )
-    card_status= models.CharField(max_length=1, choices=STATUS_CHOICES,null=True)
     cvv_security=models.IntegerField()
     wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Card_wallet')
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Card_account')
@@ -82,11 +72,6 @@ class ThirdParty(models.Model):
 
 class Notifications(models.Model):
     notification_Id=models.CharField(max_length=25,null=True)
-    STATUS_CHOICES = (
-        ('read', 'read'),
-        ('unread', 'unread'),
-    )
-    status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
     date=models.DateTimeField(default=timezone.now)
     recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')
 
