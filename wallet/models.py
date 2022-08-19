@@ -45,12 +45,12 @@ class Transaction(models.Model):
     transaction_amount=models.IntegerField()
     TRANSACTION_CHOICES = (
        ('withdraw', 'Withdrawal'),
-        ('depo', 'deposit'),
+        ('deposit', 'deposit'),
     )
     transaction_type=models.CharField(max_length=10, choices=TRANSACTION_CHOICES,null=True)
     transaction_charge=models.IntegerField()
     transaction_date=models.DateTimeField(default=timezone.now)
-    receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
+    # receipt=models.ForeignKey('Receipts',on_delete=models.CASCADE, related_name='Transaction_receipt')
     original_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_original_account')
     destination_account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name='Transaction_destination_account')
 
@@ -81,14 +81,14 @@ class ThirdParty(models.Model):
     currency=models.ForeignKey('Currency', on_delete=models.CASCADE, related_name ='ThirdParty_currency')
 
 class Notifications(models.Model):
- notification_Id=models.CharField(max_length=25,null=True)
- STATUS_CHOICES = (
+    notification_Id=models.CharField(max_length=25,null=True)
+    STATUS_CHOICES = (
         ('read', 'read'),
         ('unread', 'unread'),
     )
- status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
- date=models.DateTimeField(default=timezone.now)
- recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')
+    status=models.CharField(max_length=12, choices=STATUS_CHOICES,null=True)
+    date=models.DateTimeField(default=timezone.now)
+    recipient=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Notifications_recipient')
 
 class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25, null=True)
@@ -96,28 +96,28 @@ class Receipts(models.Model):
     recipt_number=models.CharField(max_length=25, null=True)
     account=models.ForeignKey('Account', on_delete=models.CASCADE, related_name ='Receipts_account')
     total_Amount=models.IntegerField(default=0)
-    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
+    # transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Receipts_transaction')
     recipt_File=models.FileField(upload_to='wallet/')
 
 class Loan(models.Model):
- loan_number=models.IntegerField()
- loan_type=models.CharField(max_length=25, null=True)
- amount=models.IntegerField()
- date=models.DateTimeField(default=timezone.now)
- wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Loan_wallet')
- interest_rate=models.IntegerField()
- guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Loan_guaranter')
- due_date=models.DateField(default=timezone.now)
- loan_balance=models.IntegerField()
- loan_term=models.IntegerField()
+    loan_number=models.IntegerField()
+    loan_type=models.CharField(max_length=25, null=True)
+    amount=models.IntegerField()
+    date=models.DateTimeField(default=timezone.now)
+    wallet=models.ForeignKey('Wallet', on_delete=models.CASCADE, related_name ='Loan_wallet')
+    interest_rate=models.IntegerField()
+    guaranter=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Loan_guaranter')
+    due_date=models.DateField(default=timezone.now)
+    loan_balance=models.IntegerField()
+    loan_term=models.IntegerField()
  
 class Reward(models.Model):
- transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
- date=models.DateTimeField(default=timezone.now)
- customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
- GENDER_CHOICES = (
+    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
+    date=models.DateTimeField(default=timezone.now)
+    customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
+    GENDER_CHOICES = (
         ('M', 'Male'),
         ('F', 'Female'),
     )
- gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
- bonus=models.CharField(max_length=25, null=True)
+    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
+    bonus=models.CharField(max_length=25, null=True)
