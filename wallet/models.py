@@ -21,7 +21,7 @@ class Currency(models.Model):
 
 class Wallet(models.Model):
     currency=models.ForeignKey('Currency',on_delete=models.CASCADE, related_name='Wallet_currency')
-    customer=models.ForeignKey('customer',on_delete=models.CASCADE, related_name='Wallet_customer')
+    customer=models.ForeignKey('Customer',on_delete=models.CASCADE, related_name='Wallet_customer')
     balance=models.IntegerField()
     amount=models.IntegerField()
     date=models.DateTimeField(default=timezone.now)
@@ -41,7 +41,7 @@ class Transaction(models.Model):
     actual_account=models.ForeignKey('Account',on_delete=models.CASCADE, related_name='Transaction_account')
     last_account=models.ForeignKey('Account',on_delete=models.CASCADE, related_name='Transaction_last_account')
     transaction_amount=models.IntegerField()
-    transaction_date=models.CharField(default=timezone.now)
+    transaction_date=models.DateTimeField(default=timezone.now)
 
 class Card(models.Model):
     card_name=models.CharField(max_length=20,null=True)
@@ -59,12 +59,12 @@ class ThirdParty(models.Model):
     account=models.ForeignKey('Account',on_delete=models.CASCADE, related_name='ThirdParty_account')
     currency=models.ForeignKey('Currency',on_delete=models.CASCADE, related_name='ThirdParty_currency')
 
-class Notification(models.Model):
+class Notifications(models.Model):
     notification_id=models.CharField(max_length=25,null=True)
     date=models.DateTimeField(default=timezone.now)
-    recepient= models.ForeignKey('Customer',on_delete=models.CASCADE, related_name='Notification_recepient')
+    receipts= models.ForeignKey('Customer',on_delete=models.CASCADE, related_name='Notifications_receipts')
 
-class Receipt(models.Model):
+class Receipts(models.Model):
     receipt_type=models.CharField(max_length=25,null=True)
     receipt_number=models.CharField(max_length=25,null=True)
     receipt_date=models.DateTimeField(default=timezone.now)
