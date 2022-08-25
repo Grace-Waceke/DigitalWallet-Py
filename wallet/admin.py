@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Notifications,Account
+from .models import Customer, Notification,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Notifications,Account
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
     list_display=('first_name','last_name','age','email',)
@@ -12,8 +12,8 @@ class ReceiptsAdmin(admin.ModelAdmin):
 admin.site.register(Receipts,ReceiptsAdmin)
 
 class TransactionAdmin(admin.ModelAdmin):
-    list_display=('transaction_ref','transaction_amount','transaction_charge','transaction_date')
-    search_fields=('transaction_ref','transaction_amount','transaction_charge','transaction_date')
+    list_display=('transaction_reference','transaction_amount','transaction_charge','transaction_date')
+    search_fields=('transaction_reference','transaction_amount','transaction_charge','transaction_date')
 admin.site.register(Transaction,TransactionAdmin)
 
 class CardAdmin(admin.ModelAdmin):
@@ -46,10 +46,10 @@ class LoanAdmin(admin.ModelAdmin):
     search_fields=('loan_number','loan_type')
 admin.site.register(Loan,LoanAdmin)
 
-class NotificationsAdmin(admin.ModelAdmin):
+class NotificationAdmin(admin.ModelAdmin):
     list_display=('notification_Id','date', 'recipient')
     search_fields=('notification_Id','date', 'recipient')
-admin.site.register(Notifications,NotificationsAdmin)
+admin.site.register(Notification,NotificationAdmin)
 
 class AccountAdmin(admin.ModelAdmin):
     list_display=('account_number', 'account_type','balance','name')
