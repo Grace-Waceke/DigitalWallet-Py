@@ -85,15 +85,13 @@ class Loan(models.Model):
     loan_term=models.IntegerField()
  
 class Reward(models.Model):
-    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
+    name=models.CharField(max_length=20,null=True)
+    customer_id =models.CharField(max_length=25,null=True)
+    gender= models.CharField(max_length=25,null=True)
     date=models.DateTimeField(default=timezone.now)
-    customer=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
-    GENDER_CHOICES = (
-        ('M', 'Male'),
-        ('F', 'Female'),
-    )
-    gender = models.CharField(max_length=1, choices=GENDER_CHOICES,null=True)
     bonus=models.CharField(max_length=25, null=True)
+    customers=models.ForeignKey('Customer', on_delete=models.CASCADE, related_name ='Reward_customer')
+    transaction=models.ForeignKey('Transaction', on_delete=models.CASCADE, related_name ='Reward_transaction')
 
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Customer, Notifications,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Account
+from .models import Customer,Notifications,Wallet,Currency,Transaction,Card,ThirdParty ,Receipts,Loan,Reward,Account
 # Register your models here.
 class CustomerAdmin(admin.ModelAdmin):
     list_display=('first_name','last_name','age','email',)
@@ -37,8 +37,8 @@ class WalletAdmin(admin.ModelAdmin):
 admin.site.register(Wallet,WalletAdmin)
 
 class RewardAdmin(admin.ModelAdmin):
-    list_display=('transaction','date','customer','gender','bonus')
-    search_fields=('transaction','date','customer','gender','bonus')
+    list_display=('name','transaction','date','customers','gender','bonus')
+    search_fields=('name','transaction','date','customers','gender','bonus')
 admin.site.register(Reward,RewardAdmin)
 
 class LoanAdmin(admin.ModelAdmin):
