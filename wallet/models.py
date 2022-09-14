@@ -13,11 +13,11 @@ class Customer(models.Model):
     email=models.EmailField(max_length=25,null=True)
     nationality=models.CharField(max_length=20,null=True)
     date_created=models.DateTimeField(default=timezone.now)
-    profile_picture=models.ImageField(upload_to='profile_pictures/',null=True)
+    profile_picture=models.ImageField(upload_to='profile_pictures/')
 
 class Currency(models.Model):
-    amount=models.IntegerField()
     country_of_origin=models.CharField(max_length=24,null=True)
+    amount=models.IntegerField()
 
 class Wallet(models.Model):
     currency=models.ForeignKey('Currency',on_delete=models.CASCADE, related_name='Wallet_currency')

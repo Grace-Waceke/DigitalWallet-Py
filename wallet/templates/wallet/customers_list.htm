@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Document</title>
+</head>
+<body style="color: white; background-color: rgb(155, 185, 190);" >
+    <table class="table" style="height: 25rem;margin: 40px; width: 60%; position: fixed; margin-left: 20%; margin-top: 10%; border: 10px solid rgb(221, 174, 174); ">
+        <th>
+            <td style="color: white; background-color: rgb(155, 185, 190);">First Name</td>
+            <td style="color: white; background-color: rgb(236, 167, 16);">Email</td>
+            <td style="color: white; background-color: rgb(155, 185, 190);">Age</td>
+            <td style="color: white; background-color: rgb(83, 106, 155);"></td>>Address</td>
+            <td style="color: white; background-color: rgb(46, 145, 112);"></td>>Phone Number</td>
+            <td style="color: white; background-color: rgb(191, 135, 202);"></td>>Email</td>
+            <td style="color: white; background-color: rgb(88, 185, 148);"></td>>Nationality</td>
+            <td style="color: white; background-color: rgb(212, 136, 143);"></td>>Age</td>
+
+    
+        </th>
+        {%for customer in customers%}
+    <tr>
+        <td style="color: white; background-color: black;">{{customer.name}}</td>
+        <td style="color: white; background-color: black;">{{customer.email}}</td>
+        <td style="color: white; background-color: black;">{{customer.age}}</td>
+    </tr>
+    {%endfor%}
+    </table>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+    
+</body>
+</html>
+
+
+
+
+        
