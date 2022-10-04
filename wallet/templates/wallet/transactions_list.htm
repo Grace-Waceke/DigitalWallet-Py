@@ -16,6 +16,8 @@
             <td style="color: white; background-color: rgb(238, 147, 62);">Last Account </td>
             <td>Transaction Amount </td>
             <td style="color: white; background-color: rgb(238, 147, 62);"> Transaction Date </td>
+            <td><a href="{%url 'transaction_profile' id=transaction.id%}">Profile</a></td>
+
         </th>
         {%for transaction in transaction%}
     <tr>

@@ -19,7 +19,7 @@
             <td style="color: white; background-color: rgb(191, 135, 202);"></td>>Email</td>
             <td style="color: white; background-color: rgb(88, 185, 148);"></td>>Nationality</td>
             <td style="color: white; background-color: rgb(212, 136, 143);"></td>>Age</td>
-
+            <td style="color: white; background-color: rgb(155, 185, 190);"> View Profile</td>
     
         </th>
         {%for customer in customers%}
@@ -27,6 +27,7 @@
         <td style="color: white; background-color: black;">{{customer.name}}</td>
         <td style="color: white; background-color: black;">{{customer.email}}</td>
         <td style="color: white; background-color: black;">{{customer.age}}</td>
+        <td><a href="{%url 'customer_profile' id=customer.id%}">Profile</a></td>
     </tr>
     {%endfor%}
     </table>

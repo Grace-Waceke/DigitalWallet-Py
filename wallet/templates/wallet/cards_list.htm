@@ -27,6 +27,8 @@
         <td style="color: white; background-color: black;">{{card.security}}</td>
         <td style="color: white; background-color: black;">{{card.account }}</td>
         <td style="color: white; background-color: black;">{{card.date  }}</td>
+        <td><a href="{%url 'card_profile' id=card.id%}">Profile</a></td>
+
     </tr>
     {%endfor%}
     </table>

@@ -22,6 +22,8 @@
         <td style="color: white; background-color: black;">{{account.number}}</td>
         <td style="color: white; background-color: black;">{{account.type}}</td>
         <td style="color: white; background-color: black;">{{account.balance}}</td>
+        <td><a href="{%url 'account_profile' id=account.id%}">Profile</a></td>
+
 
     </tr>
     {%endfor%}
